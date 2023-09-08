@@ -1,6 +1,20 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
 
 double Estoque[10], Clientes[10];
+
+
+void limpatela(){
+    
+#ifdef _WIN32
+        system("cls"); // Para Windows
+    #else
+        system("clear"); // Para Unix/Linux
+    #endif
+}
+
 
 void tabelaItens(){
     printf("\tSeja Bem vindo ao Helder e Kaue suplementos\n ");
@@ -20,6 +34,7 @@ void tabelaItens(){
     printf("10\t  Omega 3              \t\t 20.30 R$\n");
 }
 
+
 void menu(){
     int menu;
     printf("\t\t\tMenu\n");
@@ -34,12 +49,25 @@ void menu(){
     printf("\n");
     printf("Digite o numero referente ao opcao: \n");
     scanf("%d", &menu);
+    
+}
+
+
+void sorteio(){
+    srand(time(0));
+    printf("\n Aqui está um numero sorteado :%d ", rand()%10);
 }
 
 
 int main(){
+    
+    sorteio();
+    
     tabelaItens();
+    
     menu();
-
-    return 0;
+    
+    limpatela();
+    
+return 0;
 }
