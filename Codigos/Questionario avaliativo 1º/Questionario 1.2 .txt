@@ -1,1 +1,0 @@
-Crie um algoritmo que receba 3 variáveis, então calcule que o valor das prestações seja o valor do empréstimo dividido pela quantidade de Prestações. Se o valor do empréstimo for maior ou igual a renda que mensal multiplicado por oito vezes e o valor da prestação for maior ou igual a renda mensal a 30%, o empréstimo não deve ser concedido.

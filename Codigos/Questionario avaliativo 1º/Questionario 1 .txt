@@ -1,3 +1,0 @@
-Desenvolva um código em C que leia 3 valores inteiros e escreva a soma dos 2 menores valores. Se o resultado final da soma for ímpar, retorne o triplo desse valor. Se for par, retorne o valor da soma encontrado sem modificações. Desconsidere a possibilidade do usuário digitar valores iguais.
-
-Dica: else if e operadores lógicos
