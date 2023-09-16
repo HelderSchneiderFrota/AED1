@@ -1,4 +1,4 @@
-
+//necessário fazer ajustes
 float pagamentoCartao (float quantidade, valor, soma){
 
 int codigo, quantidade; 
