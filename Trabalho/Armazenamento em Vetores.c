@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio.h> //necesário transformar em função 
 
 int main() {
     int vetor[10]; 
