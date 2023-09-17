@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-
 double Estoque[10], Clientes[10];
 
 
@@ -23,25 +22,14 @@ void ConsutarCrediario(){
     MENU();
 }
 
-void PreencherEstoque(){
-    int d, f;
-    printf("Digite o codigo do produto para preencher o estoque: \n");
-    scanf("%d", &d);
-    printf("Digite a quantidade: \n");
-    scanf("%d", &f);
+void PreencherEstoque(int d, int f){
     Estoque[d] += f;
-    MENU();
-}
-
-void ConsultarEstoque(){
-    int a;
-    printf("Digite o codigo do produto para consultar o estoque: \n");
-    scanf("%d", &a);
-    printf("A quantidade de produtos eh: %f \n", Estoque[a]);
+    printf("Estoque preenchido\n");
     MENU();
 }
 
 void PagamentoCrediario(){
+
 }
 
 void Pagamento(float VALOR){
@@ -69,11 +57,11 @@ void Pagamento(float VALOR){
         printf("Digite o codigo do cliente: ");
         scanf("%d", &CodigoCliente);
         Clientes[CodigoCliente] += VALOR;
-        printf("Valor inserido no crediario do cliente: %f ", VALOR);
+        printf("Valor inserido no crediario do cliente: %f \n", VALOR);
         MENU();
         break;
     default:
-        printf("Escolha um metodo de pagamento correto!!!");
+        printf("Escolha um metodo de pagamento correto!!!\n");
         total= VALOR;
         Pagamento(total);
         break;
@@ -103,7 +91,7 @@ void tabelaItens(){
     printf("Digite a Quantidade: ");
     scanf("%d", &Quantidade);
 
-        if(Estoque[Produto] > Quantidade){
+        if(Estoque[Produto] >= Quantidade){
             switch (Produto){
             case 1://Barrinha de proteina
                 if(Quantidade>=5){
@@ -259,8 +247,17 @@ void sorteio(){
     printf("\n Aqui está um numero sorteado :%d ", rand()%10);
 }
 
+void ConsultarEstoque(){
+    int i;
+    printf("Quantidade de produtos no estoque: \n");
+        for(i=0;i<=10;i++){
+            printf("Codigo: %d, Quantidade: %.2lf  \n",i, Estoque[i]);
+        }
+    MENU();
+}
+
 void MENU(){
-    int men;
+    int men,a,D,F;
     printf("\t\t\tMenu\n");
     printf("O que deseja fazer?\n");
     printf("\n");
@@ -281,30 +278,36 @@ void MENU(){
         ConsutarCrediario();
         break;
     case 3:
-        PreencherEstoque();
+        printf("Digite o codigo do produto para preencher o estoque: \n");
+        scanf("%d", &D);
+        printf("Digite a quantidade: \n");
+        scanf("%d", &F);
+        PreencherEstoque(D,F);
         break;
     case 4:
         ConsultarEstoque();
         break;
     case 5:
-        PagamentoCrediario();
+        printf("digite o codigo do cliente: \n");
+        scanf("%d", &a);
+        PagamentoCrediario(a);
         break;
     case 6:
         sorteio();
         break;
     default:
         printf("Codigo invalido");
-        MENU();
         break;
     }
 }
 
 int main(){
-    limpatela();
+    //limpatela();
     printf("\tSeja Bem vindo ao Helder e Kaue suplementos\n ");
     printf("\n");
 
     MENU();
+  
 
     
 return 0;
