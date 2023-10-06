@@ -44,27 +44,33 @@ void Pagamento(float VALOR){
     float total;
     printf("Digite a forma de Pagamento, 1 para PIX, 2 para Cartão, 3 para Dinheiro, 4 para Crediario: ");
     scanf("%d", &Paga);
-
     switch (Paga){
     case 1://PIX 5% de desconto
         total = VALOR - (VALOR*0.05);
         printf("Ganhou um desconto, o valor total ficou: %f \n", total);
         printf("Pagamento realizado");
+        sleep(2);
+        MENU();
         break;
     case 2://CARTÃO sem desconto
         printf("O valor total ficou: %f\n", VALOR);
         printf("Pagamento realizado");
+        sleep(2);
+        MENU();
         break;
     case 3://DINHEIRO 2% de desconto
         total = VALOR - (VALOR*0.02);
         printf("Ganhou um desconto, o valor total ficou: %f\n", total);
         printf("Pagamento realizado");
+        sleep(2);
+        MENU();
         break;
     case 4: //CREDIARIO
         printf("Digite o codigo do cliente: ");
         scanf("%d", &CodigoCliente);
         Clientes[CodigoCliente] += VALOR;
         printf("Valor inserido no crediario do cliente: %f \n", VALOR);
+        sleep(2);
         MENU();
         break;
     default:
@@ -319,8 +325,15 @@ void MENU(){
                 sorteio();
                 break;
             default:
-                printf("Codigo invalido");
-                MENU();
+                printf("Codigo invalido \n ");
+                    printf("Deseja finalizar o programa? Digite 1 para Sim, 2 para nao: ");
+                    scanf("%d", &c);
+                    if(c != 1){
+                        MENU();
+                    }
+                    else{
+                        break;
+                    }
                 break;
         }
 }
