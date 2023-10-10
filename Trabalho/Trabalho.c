@@ -188,6 +188,7 @@ void tabelaItens(){
 				    printf("\nCafeina\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
             Estoque[Produto] -= Quantidade;
+            break;
             case 7://glutamina
                 if(Quantidade>=3){
                     printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
