@@ -224,7 +224,7 @@ void tabelaItens(){
 				    printf("\nBCAA\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
 				}
                 else{
-				    Valor += (Quantidade*12.5);
+				    Valor += (Quantidade*12.50);
 				    printf("\nBCAA\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
             Estoque[Produto] -= Quantidade;
