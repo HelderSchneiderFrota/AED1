@@ -10,7 +10,7 @@ void ConsutarCrediario()
     int CodigoCliente;
     printf("Digite o Codigo do cliente : \n");
     scanf("%d", &CodigoCliente);
-    printf("O Saldo em aberto do Cliente eh: %lf\n", Clientes[CodigoCliente]);
+    printf("O Saldo em aberto do Cliente eh: %.2lf\n", Clientes[CodigoCliente]);
     sleep(2);
     MENU();
 }
@@ -26,14 +26,14 @@ void PreencherEstoque(int d, int f)
 void PagamentoCrediario(int a)  // a é o codigo do cliente
 {
     float pagamentocliente;
-    printf("O Saldo em aberto do Cliente eh: %lf\n", Clientes[a]);
+    printf("O Saldo em aberto do Cliente eh: %.2lf\n", Clientes[a]);
     printf("Digite o valor que deseja pagar: ");
     scanf("%f", &pagamentocliente);
     if(Clientes[a] >= pagamentocliente)
     {
         Clientes[a] -= pagamentocliente;
         printf("Pagamento realizado com sucesso!! \n");
-        printf("O valor no crediario ficou: %lf", Clientes[a]);
+        printf("O valor no crediario ficou: %.2lf", Clientes[a]);
         sleep(2);
         MENU();
     }
@@ -48,13 +48,13 @@ void Pagamento(float VALOR)
 {
     int Paga, CodigoCliente;
     float total;
-    printf("Digite a forma de Pagamento, 1 para PIX, 2 para Cartão, 3 para Dinheiro, 4 para Crediario: ");
+    printf("Digite a forma de Pagamento, 1 para PIX, 2 para Cartao, 3 para Dinheiro, 4 para Crediario: ");
     scanf("%d", &Paga);
     switch (Paga)
     {
     case 1://PIX 5% de desconto
         total = VALOR - (VALOR*0.05);
-        printf("Ganhou um desconto, o valor total ficou: %.2f \n", total);
+        printf("Ganhou um desconto de 5 por cento, o valor total ficou: %.2f \n", total);
         printf("Pagamento realizado");
         sleep(2);
         MENU();
@@ -67,7 +67,7 @@ void Pagamento(float VALOR)
         break;
     case 3://DINHEIRO 2% de desconto
         total = VALOR - (VALOR*0.02);
-        printf("Ganhou um desconto, o valor total ficou: %.2f\n", total);
+        printf("Ganhou um desconto de 2 por cento, o valor total ficou: %.2f\n", total);
         printf("Pagamento realizado");
         sleep(2);
         MENU();
@@ -121,14 +121,14 @@ void tabelaItens()
                 if(Quantidade>=5)
                 {
                     printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
-                    Valor=(Quantidade*4.50)*0.95;
-                    Soma=Soma+Valor;
+                    Valor+=(Quantidade*4.50)*0.95;
+
                     printf("\nBarrinha de cereal\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
                 else
                 {
-                    Valor=Quantidade*4.50;
-                    Soma=Soma+Valor;
+                    Valor+=Quantidade*4.50;
+
                     printf("\nBarrinha de Cereal\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
 
                 }
@@ -139,13 +139,13 @@ void tabelaItens()
                 if(Quantidade>=2)
                 {
                     printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
-                    Valor=(Quantidade*75)*0.95;
-                    Soma=Soma+Valor;
+                    Valor+=(Quantidade*75)*0.95;
+
                     printf("\nCreatina\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
                 else
                 {
-                    Valor =  (Quantidade*75);
+                    Valor +=  (Quantidade*75);
                     printf("\nCreatina\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
                 Estoque[Produto] -= Quantidade;
@@ -155,13 +155,13 @@ void tabelaItens()
                 if(Quantidade>=2)
                 {
                     printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
-                    Valor=(Quantidade*99)*0.95;
-                    Soma=Soma+Valor;
+                    Valor+=(Quantidade*99)*0.95;
+
                     printf("\nWhey Protein\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
                 else
                 {
-                    Valor =  (Quantidade*99);
+                    Valor +=  (Quantidade*99);
                     printf("\nWhey Protein\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
                 Estoque[Produto] -= Quantidade;
@@ -171,13 +171,13 @@ void tabelaItens()
                 if(Quantidade>=3)
                 {
                     printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
-                    Valor=(Quantidade*59)*0.95;
-                    Soma=Soma+Valor;
+                    Valor+=(Quantidade*59)*0.95;
+
                     printf("\nBeta Alanina\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
                 else
                 {
-                    Valor = (Quantidade*59);
+                    Valor += (Quantidade*59);
                     printf("\nBeta Alanina\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
                 Estoque[Produto] -= Quantidade;
@@ -187,13 +187,13 @@ void tabelaItens()
                 if(Quantidade>=2)
                 {
                     printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
-                    Valor=(Quantidade*89)*0.95;
-                    Soma=Soma+Valor;
+                    Valor+=(Quantidade*89)*0.95;
+
                     printf("\nPre treino\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
                 else
                 {
-                    Valor = (Quantidade*89);
+                    Valor += (Quantidade*89);
                     printf("\nPre treino\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
                 Estoque[Produto] -= Quantidade;
@@ -203,13 +203,13 @@ void tabelaItens()
                 if(Quantidade>=4)
                 {
                     printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
-                    Valor=(Quantidade*40)*0.95;
-                    Soma=Soma+Valor;
+                    Valor+=(Quantidade*40)*0.95;
+
                     printf("\nCafeina\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
                 else
                 {
-                    Valor = (Quantidade*40);
+                    Valor += (Quantidade*40);
                     printf("\nCafeina\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
                 Estoque[Produto] -= Quantidade;
@@ -219,13 +219,13 @@ void tabelaItens()
                 if(Quantidade>=3)
                 {
                     printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
-                    Valor=(Quantidade*32.89)*0.95;
-                    Soma=Soma+Valor;
+                    Valor+=(Quantidade*32.89)*0.95;
+
                     printf("\nCafeina\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
                 else
                 {
-                    Valor = (Quantidade*40);
+                    Valor += (Quantidade*40);
                     printf("\nCafeina\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
                 Estoque[Produto] -= Quantidade;
@@ -234,13 +234,13 @@ void tabelaItens()
                 if(Quantidade>=4)
                 {
                     printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
-                    Valor=(Quantidade*21)*0.95;
-                    Soma=Soma+Valor;
+                    Valor+=(Quantidade*21)*0.95;
+
                     printf("\nMaca Peruana\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
                 else
                 {
-                    Valor = (Quantidade*21);
+                    Valor += (Quantidade*21);
                     printf("\nMaca Peruana\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
                 Estoque[Produto] -= Quantidade;
@@ -249,13 +249,13 @@ void tabelaItens()
                 if(Quantidade>=4)
                 {
                     printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
-                    Valor=(Quantidade*12.50)*0.95;
-                    Soma=Soma+Valor;
+                    Valor+=(Quantidade*12.50)*0.95;
+
                     printf("\nBCAA\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
                 else
                 {
-                    Valor = (Quantidade*12.50);
+                    Valor += (Quantidade*12.50);
                     printf("\nBCAA\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
                 Estoque[Produto] -= Quantidade;
@@ -264,13 +264,12 @@ void tabelaItens()
                 if(Quantidade>=3)
                 {
                     printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
-                    Valor=(Quantidade*20.30)*0.95;
-                    Soma=Soma+Valor;
+                    Valor+=(Quantidade*20.30)*0.95;
                     printf("\nOmega 3\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
                 else
                 {
-                    Valor = (Quantidade*20.30);
+                    Valor += (Quantidade*20.30);
                     printf("\nOmega 3\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                 }
                 Estoque[Produto] -= Quantidade;
@@ -370,7 +369,7 @@ void MENU()
         sorteio();
         break;
     default:
-        printf("Codigo invalido \n ");
+        printf("Codigo invalido \n");
         printf("Deseja finalizar o programa? Digite 1 para Sim, 2 para nao: ");
         scanf("%d", &c);
         if(c != 1)
@@ -397,6 +396,6 @@ int main()
     return 0;
 }
 
-  
+
 
 
