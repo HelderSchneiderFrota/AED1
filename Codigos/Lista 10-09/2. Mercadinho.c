@@ -2,14 +2,12 @@
 #include <stdlib.h>
 #include <time.h>
 
-
-
 int main(){
 
-    int somatorio=0, lm =0, cm =0, MaiorLinha=0, MaiorColuna=0;
+    int maior=0, MaiorLinha=0;
 
     srand(time(0)); //tomei a liberdade de fazer um sorteio para não precisar ficar digitando um a um;
-    double matriz[7][12], anterior =0;
+    double matriz[7][12], somatorio=0, menor=0;
 
         for(int linha= 0; linha < 7; linha++){
             for(int coluna=0; coluna <= 10; coluna++){
@@ -21,19 +19,18 @@ int main(){
 
         for(int linha= 0; linha <  7; linha++){
             for(int coluna=0; coluna <= 10; coluna++){
-                printf("Posicao [%d][%d]: %.lf\n",linha, coluna ,matriz[linha][coluna]);
-                if(linha == anterior){
-                    anterior++;
+                printf("Posicao [%d][%d]: %.lf \n",linha, coluna ,matriz[linha][coluna]);
+                if(matriz[linha][11] > menor){
                     MaiorLinha = linha;
-                    MaiorColuna = coluna;
+                    menor = matriz[linha][11];
                 }
+
+
             }
+            printf("A media do dia foi: %.lf \n", matriz[linha][11]);
         }
     
-printf("Maior do dia foi venda foi Posicao [%d] [%d] : %.lf", MaiorLinha, MaiorColuna, matriz[MaiorLinha][MaiorColuna]);
-
-                
-//printf("O maior venda ficou na posicao [%d][%d]: %.2lf \n",MaiorLinha,MaiorColuna ,matriz[MaiorLinha][MaiorColuna]);
+printf("O dia que teve a maior media de faturamento foi o dia: %d  \n",MaiorLinha);
     
 return 0;
 }
