@@ -7,17 +7,8 @@
 
 > Status do Trabalho: Em desenvolvimento :warning:
 
-### Trabalho final da disciplina de Algoritmos e Estruturas de Dados I
-Consistirá em desenvolver um programa que simule algumas atividades básicas de um caixa e crediário de um supermercado.
-
-#### Atividades a realizar no trabalho
-- [ ] Implementar um menu de opções para quem opera o caixa.
-- [ ] Simular uma compra, lendo o código de um produto e a quantidade.
-- [ ] Permitir várias formas de pagamento, inclusive a forma “crediário”.
-- [ ] Realizar controle de estoque dos produtos.
-- [ ] Consultar o saldo a pagar do crediário de um determinado cliente.
-- [ ] Pagar total ou parcial o saldo devedor do crediário de um determinado cliente.
-- [ ] Sortear aleatoriamente um cliente para perdoar a sua dívida.
+### Listas de exercicio e trabalho final da disciplina de Algoritmos e Estruturas de Dados I
+Todas as listas enumerdas por Mês e dia. O trabalho consistirá em desenvolver um programa que simule algumas atividades básicas de um caixa e crediário de um supermercado.
 
       
 ### Participante: 
