@@ -11,12 +11,18 @@ void limpatela(){
 
 void ConsutarCrediario(){
     int CodigoCliente;
-    printf("Digite o Codigo do cliente : \n");
+    printf("Digite o Codigo do cliente: \n");
     scanf("%d", &CodigoCliente);
-    printf("O Saldo em aberto do Cliente eh: %.2lf\n", Clientes[CodigoCliente]);
-    sleep(2);
-    limpatela();
-    MENU();
+    if(CodigoCliente>=0 && CodigoCliente<=9){
+        printf("O Saldo em aberto do Cliente eh: %.2lf\n", Clientes[CodigoCliente]);
+        sleep(2);
+        limpatela();
+        MENU();
+    }
+    else{
+        printf("Digite o codigo do cliente correto!! \n");
+        ConsutarCrediario();
+    }
 }
 
 void PreencherEstoque(int d, int f){
@@ -52,77 +58,85 @@ void Pagamento(float VALOR){
     printf("Digite a forma de Pagamento, 1 para PIX, 2 para Cartao, 3 para Dinheiro, 4 para Crediario: ");
     scanf("%d", &Paga);
         switch (Paga){
-        case 1://PIX 5% de desconto
-            total = VALOR - (VALOR*0.05);
-            printf("Ganhou um desconto de 5 por cento, o valor total ficou: %.2f \n", total);
-            printf("Pagamento realizado");
-            sleep(3);
-            limpatela();
-            MENU();
-            break;
-        case 2://CARTÃO sem desconto
-            printf("O valor total ficou: %.2f\n", VALOR);
-            printf("Pagamento realizado");
-            sleep(3);
-            limpatela();
-            MENU();
-            break;
-        case 3://DINHEIRO 2% de desconto
-            total = VALOR - (VALOR*0.02);
-            printf("Ganhou um desconto de 2 por cento, o valor total ficou: %.2f\n", total);
-            printf("Pagamento realizado");
-            sleep(3);
-            limpatela();
-            MENU();
-            break;
-        case 4: //CREDIARIO
-            printf("Digite o codigo do cliente: ");
-            scanf("%d", &CodigoCliente);
-            Clientes[CodigoCliente] += VALOR;
-            printf("Valor inserido no crediario do cliente: %.2f \n", VALOR);
-            sleep(3);
-            limpatela();
-            MENU();
-            break;
-        default:
-            printf("Escolha um metodo de pagamento correto!!!\n");
-            total= VALOR;
-            Pagamento(total);
-            break;
+            case 1://PIX 5% de desconto
+                total = VALOR - (VALOR*0.05);
+                printf("Ganhou um desconto de 5 por cento, o valor total ficou: %.2f \n", total);
+                printf("Pagamento realizado");
+                sleep(3);
+                limpatela();
+                MENU();
+                break;
+            case 2://CARTÃO sem desconto
+                printf("O valor total ficou: %.2f\n", VALOR);
+                printf("Pagamento realizado");
+                sleep(3);
+                limpatela();
+                MENU();
+                break;
+            case 3://DINHEIRO 2% de desconto
+                total = VALOR - (VALOR*0.02);
+                printf("Ganhou um desconto de 2 por cento, o valor total ficou: %.2f\n", total);
+                printf("Pagamento realizado");
+                sleep(3);
+                limpatela();
+                MENU();
+                break;
+            case 4: //CREDIARIO
+                printf("Digite o codigo do cliente: ");
+                scanf("%d", &CodigoCliente);
+                if(CodigoCliente>=0 && CodigoCliente<=9){
+                    Clientes[CodigoCliente] += VALOR;
+                    printf("Valor inserido no crediario do cliente: %.2f \n", VALOR);
+                    sleep(3);
+                    limpatela();
+                    MENU();
+                }
+                else{
+                    printf("Digite um codigo do cliente correto!!!\n");
+                    total = VALOR;
+                    Pagamento(total);
+                }
+                break;
+            default:
+                printf("Escolha um metodo de pagamento correto!!!\n");
+                total= VALOR;
+                Pagamento(total);
+                break;
         }
 }
 
 void tabelaItens(){
-    int Quantidade=0, Produto, Soma;
+    int Quantidade=0, Produto;
     float  Valor;
     sleep(1);
     printf("Codigo\t\t   Item \t\t Preco \n");
     printf("\n");
-    printf("1\t  Barrinha de proteina \t\t 04.50 R$ \n");
-    printf("2\t  Creatina             \t\t 75.00 R$\n");
-    printf("3\t  Whey protein         \t\t 99.00 R$\n");
-    printf("4\t  Beta alanina         \t\t 59.00 R$\n");
-    printf("5\t  Pre treino           \t\t 89.00 R$\n");
-    printf("6\t  Cafeina              \t\t 40.00 R$\n");
-    printf("7\t  Glutamina            \t\t 32.89 R$\n");
-    printf("8\t  Maca peurana         \t\t 21.00 R$\n");
-    printf("9\t  BCAA                 \t\t 12.50 R$\n");
-    printf("10\t  Omega 3              \t\t 20.30 R$\n");
+    printf("0\t  Barrinha de proteina \t\t 04.50 R$ \n");
+    printf("1\t  Creatina             \t\t 75.00 R$\n");
+    printf("2\t  Whey protein         \t\t 99.00 R$\n");
+    printf("3\t  Beta alanina         \t\t 59.00 R$\n");
+    printf("4\t  Pre treino           \t\t 89.00 R$\n");
+    printf("5\t  Cafeina              \t\t 40.00 R$\n");
+    printf("6\t  Glutamina            \t\t 32.89 R$\n");
+    printf("7\t  Maca peurana         \t\t 21.00 R$\n");
+    printf("8\t  BCAA                 \t\t 12.50 R$\n");
+    printf("9\t  Omega 3              \t\t 20.30 R$\n");
     printf("0\t Finalizar compra\n");
     printf("Digite o codigo referente ao produto que deseja: ");
     scanf("%d", &Produto);
+        
     do{
         printf("Digite a Quantidade: ");
         scanf("%d", &Quantidade);
 
         if(Estoque[Produto] >= Quantidade){
             switch (Produto){
-                case 1://Barrinha de proteina
+                case 0://Barrinha de proteina
                     if(Quantidade>=5){
                         printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
                         Valor+=(Quantidade*4.50)*0.95;
 
-                        printf("\nBarrinha de cereal\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
+                        printf("\nBarrinha de proteina\tqnt:%d\tvalor:R$%.2f\n\n",Quantidade,Valor);
                     }
                     else{
                         Valor+=Quantidade*4.50;
@@ -133,7 +147,7 @@ void tabelaItens(){
                     Estoque[Produto] -= Quantidade;
                     break;
 
-                case 2: //Creatina
+                case 1: //Creatina
                     if(Quantidade>=2){
                         printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
                         Valor+=(Quantidade*75)*0.95;
@@ -147,7 +161,7 @@ void tabelaItens(){
                     Estoque[Produto] -= Quantidade;
                     break;
 
-                case 3: //Whey protein
+                case 2: //Whey protein
                     if(Quantidade>=2){
                         printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
                         Valor+=(Quantidade*99)*0.95;
@@ -161,7 +175,7 @@ void tabelaItens(){
                     Estoque[Produto] -= Quantidade;
                     break;
 
-                case 4://Beta alanina
+                case 3://Beta alanina
                     if(Quantidade>=3){
                         printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
                         Valor+=(Quantidade*59)*0.95;
@@ -175,7 +189,7 @@ void tabelaItens(){
                     Estoque[Produto] -= Quantidade;
 
                     break;
-                case 5://Pre treino
+                case 4://Pre treino
                     if(Quantidade>=2){
                         printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
                         Valor+=(Quantidade*89)*0.95;
@@ -189,7 +203,7 @@ void tabelaItens(){
                     Estoque[Produto] -= Quantidade;
 
                     break;
-                case 6://cafeina
+                case 5://cafeina
                     if(Quantidade>=4){
                         printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
                         Valor+=(Quantidade*40)*0.95;
@@ -203,7 +217,7 @@ void tabelaItens(){
                     Estoque[Produto] -= Quantidade;
 
                     break;
-                case 7://glutamina
+                case 6://glutamina
                     if(Quantidade>=3){
                         printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
                         Valor+=(Quantidade*32.89)*0.95;
@@ -216,7 +230,7 @@ void tabelaItens(){
                     }
                     Estoque[Produto] -= Quantidade;
                     break;
-                case 8://Maca peruna
+                case 7://Maca peruna
                     if(Quantidade>=4){
                         printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
                         Valor+=(Quantidade*21)*0.95;
@@ -229,7 +243,7 @@ void tabelaItens(){
                     }
                     Estoque[Produto] -= Quantidade;
                     break;
-                case 9: //Bcaa
+                case 8: //Bcaa
                     if(Quantidade>=4){
                         printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
                         Valor+=(Quantidade*12.50)*0.95;
@@ -242,7 +256,7 @@ void tabelaItens(){
                     }
                     Estoque[Produto] -= Quantidade;
                     break;
-                case 10://omega 3
+                case 9://omega 3
                     if(Quantidade>=3){
                         printf("Compra no atacado, recebeu um desconto de 5 por cento no valor!!");
                         Valor+=(Quantidade*20.30)*0.95;
@@ -260,7 +274,7 @@ void tabelaItens(){
             }
         }
         else{
-            printf("Produto sem estoque!!");
+            printf("Produto sem estoque!! \n");
         }
     printf("Digite o codigo referente ao produto que deseja: ");
     scanf("%d", &Produto);
@@ -288,7 +302,7 @@ void sorteio(){
 
 void ConsultarEstoque(){
     printf("Quantidade de produtos no estoque: \n");
-    for(int i=1; i<=10; i++){
+    for(int i=0; i<10; i++){
         printf("Codigo: %d, Quantidade: %.2lf  \n",i, Estoque[i]);
     }
     sleep(2);
@@ -328,7 +342,7 @@ void MENU(){
                 PreencherEstoque(D,F);
             }
             else{
-                for(int i=1; i<=10; i++)
+                for(int i=0; i<10; i++)
                 {
                     Estoque[i] += 10;
                 }
@@ -344,7 +358,13 @@ void MENU(){
         case 5:
             printf("Digite o codigo do cliente: \n");
             scanf("%d", &a);
-            PagamentoCrediario(a);
+            if(a>=0 && a<=9){
+                PagamentoCrediario(a);
+            }
+            else{
+                printf("Digite um codigo correto!!!\n");
+                MENU();
+            }
             break;
         case 6:
             sorteio();
