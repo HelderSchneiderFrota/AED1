@@ -1,0 +1,10 @@
+1  Barrinha de proteina - 04.50 R$ - 5 unidades compra atacado - 5% desconto
+2  Creatina             - 75.00 R$ - 2 unidades compra atacado - 5% desconto
+3  Whey protein         - 99.00 R$ - 2 unidades compra atacado - 5% desconto
+4  Beta alanina         - 59.00 R$ - 3 unidades compra atacado - 5% desconto
+5  Pre treino           - 89.00 R$ - 2 unidades compra atacado - 5% desconto
+6  Cafeina              - 40.00 R$ - 4 unidades compra atacado - 5% desconto
+7  Glutamina            - 32.89 R$ - 3 unidades compra atacado - 5% desconto
+8  Maca peurana         - 21.00 R$ - 4 unidades compra atacado - 5% desconto
+9  BCAA                 - 12.50 R$ - 9 unidades compra atacado - 5% desconto
+10 Omega 3              - 20.30 R$ - 3 unidades compra atacado - 5% desconto
