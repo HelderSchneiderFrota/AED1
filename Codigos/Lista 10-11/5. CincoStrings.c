@@ -1,26 +1,24 @@
 #include <stdio.h>
-#include <ctype.h>
+#include <string.h>
 
-int main(){
+int main() {
+    char strings[5][50];  
+    int i, maior = 0;  
 
-int i=1;
-char string[5][10];
-
-    for(int linha=0; linha < 5; linha++){
-        printf("Digite sua %d string :", i);
-        gets(string);
-        i++;
+    
+    for (i = 0; i < 5; i++) {
+        printf("Digite a string %d : ", i + 1);
+        fgets(strings[i], 50, stdin);  
+        strings[i][strcspn(strings[i], "\n")] = '\0';
     }
 
-    for(int linha=0; linha < 5; linha++){
-        for(int coluna=0; coluna < 10; coluna++){
-        printf("%c", string[linha][coluna]);
+    for (i = 0; i < 5; i++) {
+        if (strlen(strings[i]) > strlen(strings[maior])) {
+            maior = i;
+        }
     }
-    printf("\n");
-    }
-        
 
-
+    printf("A maior string eh: %s\n", strings[maior]);
 
     return 0;
 }
