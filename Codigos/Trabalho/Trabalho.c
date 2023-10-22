@@ -121,7 +121,7 @@ void tabelaItens(){
     printf("7\t  Maca peurana         \t\t 21.00 R$\n");
     printf("8\t  BCAA                 \t\t 12.50 R$\n");
     printf("9\t  Omega 3              \t\t 20.30 R$\n");
-    printf("0\t Finalizar compra\n");
+    printf("-1\t Finalizar compra\n");
     printf("Digite o codigo referente ao produto que deseja: ");
     scanf("%d", &Produto);
         
@@ -278,7 +278,7 @@ void tabelaItens(){
         }
     printf("Digite o codigo referente ao produto que deseja: ");
     scanf("%d", &Produto);
-    }while (Produto != 0);
+    }while (Produto != -1);
     Pagamento(Valor);
 }
 
