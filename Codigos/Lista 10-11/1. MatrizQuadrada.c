@@ -1,3 +1,10 @@
+    """
+    Uma matriz 3 x 7 com valores do tipo int. Seu código deve retornar:
+    a) A soma dos elementos que estão nas colunas de índices pares
+    b) A soma dos elementos que estão nas colunas de índices ímpares
+    c) A média dos elementos que estão nas linhas de índices pare
+
+    """
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
