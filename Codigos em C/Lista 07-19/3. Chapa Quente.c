@@ -54,7 +54,7 @@ switch (Codigo) {
     printf ("O valor total é %.2f R$", preco);
     break;
 default:
-  printf("A letra digitada é uma consoante.\n");
+  printf("Codigo digitado invalido\n");
  break;
     }
 printf("\n");
